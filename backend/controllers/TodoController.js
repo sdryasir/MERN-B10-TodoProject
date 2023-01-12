@@ -3,7 +3,9 @@ import {Todos} from '../model/todoSchema.js'
 export const createTodo = async (req, res, next)=>{
     try{
         await Todos.create(req.body);
-        res.json('Todo has been created')
+        res.json({
+            message:'Todo has been created'
+        })
     }catch(err){
         next(err)
     }  
@@ -23,7 +25,9 @@ export const getTodoById = async (req, res, next)=>{
 export const updateTodo =  async (req, res, next)=>{
     const {id} = req.params
     await Todos.findByIdAndUpdate(id, req.body)
-    res.json('Updated')
+    res.json({
+        message:'Todo has been Updated'
+    })
 }
 
 export const deleteTodo = async (req, res, next)=>{
