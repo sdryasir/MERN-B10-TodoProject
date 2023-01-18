@@ -29,6 +29,16 @@ const userScema = new Schema({
     avatar:{
         type:String,
     },
+    role:{
+        type:String,
+        enum: ['user', 'admin', 'moderator', 'teacher', 'student'],
+        default:'user'
+    },
+    status:{
+        type:String,
+        enum:['pending', 'enrolled', 'passout', "dropout"],
+        default:'pending'
+    }
 
 })
 

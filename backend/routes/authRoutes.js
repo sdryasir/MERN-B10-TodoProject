@@ -18,13 +18,15 @@ const upload = multer({ storage: storage })
 
 import { 
     createUser,
-    loginUser
+    loginUser,
+    logoutUser
  } from "../controllers/AuthController.js";
 
 const router = express.Router()
 
-router.route('/new').post(upload.single('avatar'), createUser)
-router.route('/login').get(loginUser)
+router.route('/new').post(upload.single('avatar'), createUser);
+router.route('/login').post(loginUser);
+router.route('/logout').get(logoutUser);
 
 
 export default router
